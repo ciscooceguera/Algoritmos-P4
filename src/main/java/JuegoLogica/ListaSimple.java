@@ -249,6 +249,13 @@ public class ListaSimple<T> {
             }
         }
     }
+    public T getFin(){
+        Nodo<T> iter = inicio;
+        while (iter.getSiguiente() != null){
+            iter = iter.getSiguiente();
+        }
+        return iter.getInfo();
+    }
 
 
 

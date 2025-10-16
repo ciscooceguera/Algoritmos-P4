@@ -1,0 +1,52 @@
+package JuegoLogica;
+
+import Logica.Carta;
+
+public class RegistroMovimiento {
+    // enum de los tipos de movimientos posibles
+    public enum Tipo{TT, TR, RT, TF, RF}
+    // enum de los posibles destinos
+    public enum OrigenDestino {TABLEAU, RESERVE, FOUNDATION}
+
+    public final Tipo tipo;
+    public final OrigenDestino from, to;
+    public final int fromIdx, toIdx;
+    public final Carta carta;
+
+    public RegistroMovimiento(Tipo tipo,
+                              OrigenDestino from, int fromIdx,
+                              OrigenDestino to, int toIdx,
+                              Carta carta) {
+        this.tipo = tipo;
+        this.fromIdx = fromIdx;
+        this.toIdx = toIdx;
+        this.carta = carta;
+        this.from = from;
+        this.to = to;
+    }
+    public static RegistroMovimiento tt(int from, int to, Carta carta) {
+        return new RegistroMovimiento(Tipo.TT,
+                OrigenDestino.TABLEAU, from,
+                OrigenDestino.TABLEAU, to, carta);
+    }
+    public static RegistroMovimiento tr(int from, int to, Carta carta) {
+        return new RegistroMovimiento(Tipo.TR,
+                OrigenDestino.TABLEAU, from,
+                OrigenDestino.RESERVE, to, carta);
+    }
+    public static RegistroMovimiento rt(int from, int to, Carta carta) {
+        return new RegistroMovimiento(Tipo.RT,
+                OrigenDestino.RESERVE, from,
+                OrigenDestino.TABLEAU, to, carta);
+    }
+    public static RegistroMovimiento tf(int from, int to, Carta carta) {
+        return new RegistroMovimiento(Tipo.TF,
+                OrigenDestino.TABLEAU, from,
+                OrigenDestino.FOUNDATION, to, carta);
+    }
+    public static RegistroMovimiento rf(int from, int to, Carta carta) {
+        return new RegistroMovimiento(Tipo.RF,
+                OrigenDestino.RESERVE, from,
+                OrigenDestino.FOUNDATION, to, carta);
+    }
+}
