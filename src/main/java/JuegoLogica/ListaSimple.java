@@ -1,6 +1,9 @@
 package JuegoLogica;
 
+import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
+
 public class ListaSimple<T> {
     private Nodo<T> inicio;
     public ListaSimple() {
@@ -56,6 +59,10 @@ public class ListaSimple<T> {
     }
     public String mostrarLista(){
         String cadena = "";
+        if (inicio == null){
+            System.out.println("Lista vacia");
+            return "";
+        }
         Nodo<T> iter = inicio;
         while (iter.getSiguiente() != null){
             cadena += iter.getInfo().toString() + "\n";
@@ -250,12 +257,75 @@ public class ListaSimple<T> {
         }
     }
     public T getFin(){
+        if (inicio == null){
+            return null;
+        }
         Nodo<T> iter = inicio;
         while (iter.getSiguiente() != null){
             iter = iter.getSiguiente();
         }
         return iter.getInfo();
     }
+    public T getPosicion(int idx){
+        if (idx < 0) return null;
+        Nodo<T> it = inicio;
+        int i = 0;
+        while (it != null){
+            if (i == idx) return it.getInfo();
+            it = it.getSiguiente();
+            i++;
+        }
+        return null;
+    }
+    public List<T> toList() {
+        ArrayList<T> lista = new ArrayList<>();
+        Nodo<T> actual = inicio;
+        while (actual != null) {
+            lista.add(actual.getInfo());
+            actual = actual.getSiguiente();
+        }
+        return lista;
+    }
+    public ListaSimple<T> getLista(){
+        if (inicio == null){
+            return null;
+        }
+        ListaSimple<T> listaNueva = new ListaSimple<>();
+        Nodo<T> actual = inicio;
+        while (actual != null){
+            listaNueva.insertaInicio(actual.getInfo());
+            actual = actual.getSiguiente();
+        }
+        return listaNueva;
+    }
+    public ListaSimple<T> popN(int n) {
+        ListaSimple<T> res = new ListaSimple<>();
+        int sz = getSize();
+        if (n <= 0 || sz == 0) return res;
+        if (n > sz) n = sz;
+        for (int i = 0; i < n; i++) {
+            T v = eliminaFinal();
+            if (v == null) break;
+            res.insertaInicio(v);
+        }
+        return res;
+    }
+
+    public ListaSimple<T> topN(int n) {
+        ListaSimple<T> res = new ListaSimple<>();
+        int sz = getSize();
+        if (n <= 0 || n > sz) return res;
+        for (int i = sz - n; i < sz; i++) {
+            res.insertaFinal(getPosicion(i));
+        }
+        return res;
+    }
+    public void addAllFinal(ListaSimple<T> other) {
+        for (T x : other.toList()) {
+            insertaFinal(x);
+        }
+    }
+
 
 
 

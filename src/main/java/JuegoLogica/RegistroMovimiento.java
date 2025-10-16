@@ -12,6 +12,7 @@ public class RegistroMovimiento {
     public final OrigenDestino from, to;
     public final int fromIdx, toIdx;
     public final Carta carta;
+    public int cantidad = 0;
 
     public RegistroMovimiento(Tipo tipo,
                               OrigenDestino from, int fromIdx,
@@ -24,10 +25,27 @@ public class RegistroMovimiento {
         this.from = from;
         this.to = to;
     }
+    public RegistroMovimiento(Tipo tipo,
+                              OrigenDestino from, int fromIdx,
+                              OrigenDestino to, int toIdx,
+                              Carta carta, int cantidad) {
+        this.tipo = tipo;
+        this.fromIdx = fromIdx;
+        this.toIdx = toIdx;
+        this.carta = carta;
+        this.from = from;
+        this.to = to;
+        this.cantidad = cantidad;
+    }
     public static RegistroMovimiento tt(int from, int to, Carta carta) {
         return new RegistroMovimiento(Tipo.TT,
                 OrigenDestino.TABLEAU, from,
                 OrigenDestino.TABLEAU, to, carta);
+    }
+    public static RegistroMovimiento tt(int from, int to, Carta carta, int cantidad) {
+        return new RegistroMovimiento(Tipo.TT,
+                OrigenDestino.TABLEAU, from,
+                OrigenDestino.TABLEAU, to, carta, cantidad);
     }
     public static RegistroMovimiento tr(int from, int to, Carta carta) {
         return new RegistroMovimiento(Tipo.TR,

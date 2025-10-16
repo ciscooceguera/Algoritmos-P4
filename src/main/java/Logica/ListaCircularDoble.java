@@ -18,6 +18,7 @@ public class ListaCircularDoble<T> {
             inicio = fin = n;
             n.setSiguiente(inicio);
             n.setAnterior(inicio);
+            return;
         }
         n.setSiguiente(inicio);
         n.setAnterior(fin);
@@ -32,6 +33,7 @@ public class ListaCircularDoble<T> {
             inicio = fin = n;
             n.setSiguiente(inicio);
             n.setAnterior(inicio);
+            return;
         }
         n.setSiguiente(inicio);
         n.setAnterior(fin);
@@ -66,6 +68,7 @@ public class ListaCircularDoble<T> {
             inicio = fin = null;
             return dato;
         }
+        dato = fin.getInfo();
         inicio.setAnterior(fin.getAnterior());
         fin.getAnterior().setSiguiente(inicio);
         fin = fin.getAnterior();

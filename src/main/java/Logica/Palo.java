@@ -1,10 +1,10 @@
 package Logica;
 
 public enum Palo {
-    TREBOL(1,"♣\uFE0E","negro","Trebol"),
-    DIAMANTE(2,"♦\uFE0F","rojo","Diamante"),
-    CORAZON(3,"❤\uFE0F","rojo","Corazon"),
-    PICA(4,"♠\uFE0F","negro","Pica");
+    TREBOL(1,"♣","negro","Trebol"),
+    DIAMANTE(2,"♦","rojo","Diamante"),
+    CORAZON(3,"❤","rojo","Corazon"),
+    PICA(4,"♠","negro","Pica");
 
     private final int peso;
     private final String figura;

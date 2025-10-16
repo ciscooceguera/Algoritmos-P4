@@ -30,10 +30,12 @@ public class Foundation {
             return false;
         }
         Carta topCarta = cartas.getFin();
+        int v = carta.getValorBajo();
         if (topCarta == null){
-            return carta.getValor() == 1;
+            return v == 1;
         }
-        return topCarta.getValor()+1 == carta.getValor();
+        int tv = topCarta.getValorBajo();
+        return tv+1 == v;
     }
     public boolean push(Carta carta){
         if (!validarMovimiento(carta)){
@@ -47,8 +49,10 @@ public class Foundation {
     }
     public void clear(){
         while (cartas.eliminaFinal()!=null){
-
         }
+    }
+    public ListaSimple<Carta> getFoundation(){
+        return cartas;
     }
 
 }

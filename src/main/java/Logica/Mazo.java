@@ -28,6 +28,9 @@ public class Mazo {
     public String toString(){
         return mazo.mostrarLista();
     }
+    public ListaCircularDoble<Carta> getMazo(){
+        return mazo;
+    }
 
 
 }
