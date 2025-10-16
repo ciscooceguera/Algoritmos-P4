@@ -1,0 +1,1093 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:controller="com.example.practica4algoritmos.ControllerInterfazSolitaire" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <HBox prefHeight="146.0" prefWidth="1366.0" spacing="63.0" BorderPane.alignment="CENTER_RIGHT">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+         </padding>
+         <children>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children></StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="598.0" prefWidth="111.0" spacing="18.0" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets left="10.0" top="8.0" />
+         </padding>
+         <children>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♠">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♠" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♥" textFill="RED">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♥" textFill="RED" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♣">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♣" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+            <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+               <children>
+                  <Label text="♦" textFill="RED">
+                     <font>
+                        <Font size="46.0" />
+                     </font>
+                  </Label>
+                  <Label text="♦" textFill="RED" StackPane.alignment="TOP_LEFT">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                     <StackPane.margin>
+                        <Insets left="6.0" top="6.0" />
+                     </StackPane.margin>
+                  </Label>
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <HBox prefHeight="100.0" prefWidth="200.0" spacing="40.0" BorderPane.alignment="TOP_LEFT">
+         <padding>
+            <Insets bottom="6.0" left="100.0" right="100.0" top="10.0" />
+         </padding>
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-75.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-150.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-225.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-300.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+                  <StackPane maxHeight="130.0" maxWidth="90.0" minHeight="130.0" minWidth="-Infinity" prefHeight="130.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; -fx-background-radius: 16; -fx-background-color: transparent;" styleClass="slot" translateY="-375.0">
+                     <children>
+                        <Label text="♠">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label text="♠" StackPane.alignment="TOP_LEFT">
+                           <font>
+                              <Font size="27.0" />
+                           </font>
+                           <StackPane.margin>
+                              <Insets left="6.0" top="6.0" />
+                           </StackPane.margin>
+                        </Label>
+                     </children>
+                  </StackPane>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>
