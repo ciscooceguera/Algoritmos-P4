@@ -66,7 +66,23 @@ public class ControllerInterfazSolitaire {
         dibujarReservas();
         dibujarFoundations();
         dibujarTableaus();
-        game.sinMovimientos();
+        if (game.evaluarVictoria()){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Haz ganado");
+            a.setHeaderText(null);
+            a.setContentText("VICTORIA, se iniciará un nuevo juego...");
+            a.showAndWait();
+            initialize();
+        }
+        if(game.sinMovimientos()){
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setTitle("Haz perdido");
+            a.setHeaderText(null);
+            a.setContentText("DERROTA. Se iniciará un nuevo juego...");
+            a.showAndWait();
+            initialize();
+        }
+
     }
     private void dibujarReservas() {
         int n = reservasHBox.getChildren().size();
