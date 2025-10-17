@@ -1,8 +1,4 @@
 package Logica;
-
-import java.util.Collections;
-import java.util.List;
-
 public class Mazo {
     ListaCircularDoble<Carta> mazo;
     public Mazo(){

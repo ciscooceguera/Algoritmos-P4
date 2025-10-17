@@ -1,9 +1,7 @@
 package Logica;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-
 public class ListaCircularDoble<T> {
     private NodoDoble<T> inicio;
     private NodoDoble<T> fin;
@@ -197,5 +195,4 @@ public class ListaCircularDoble<T> {
             r = r.getSiguiente();
         } while (r != inicio);
     }
-
 }

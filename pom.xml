@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.practica4algoritmos/com.example.practica4algoritmos.HelloApplication
+                                com.example.practica4algoritmos/com.example.practica4algoritmos.Main
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

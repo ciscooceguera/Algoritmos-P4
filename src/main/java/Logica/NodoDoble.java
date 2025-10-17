@@ -1,5 +1,4 @@
 package Logica;
-
 public class NodoDoble<T> {
     private T info;
     private NodoDoble<T> siguiente;
