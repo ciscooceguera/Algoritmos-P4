@@ -7,7 +7,7 @@ public class Tableau {
     * soloRey = true: solo se puede colocar 'K' en tableaus vacíos
     * soloRey = false: puede colocarse cualquier carta en tableaus vacíos
      */
-    private final boolean soloRey = false;
+    private final boolean soloRey = true;
     public int size(){ return tableau.getSize(); }
     public boolean isEmpty(){ return tableau.getSize() == 0; }
     public Carta peek(){ return tableau.getFin(); }
