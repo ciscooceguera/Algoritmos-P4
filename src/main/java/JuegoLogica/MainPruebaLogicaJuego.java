@@ -1,9 +1,7 @@
 package JuegoLogica;
-
 import Logica.CartaInglesa;
 import Logica.Palo;
 import javafx.application.Platform;
-
 public class MainPruebaLogicaJuego {
     public static void main(String[] args) {
         Platform.startup(() -> {});

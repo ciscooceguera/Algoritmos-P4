@@ -1,5 +1,4 @@
 package com.example.practica4algoritmos;
-
 import JuegoLogica.EightOffGame;
 import JuegoLogica.Foundation;
 import JuegoLogica.RegistroMovimiento;
@@ -10,28 +9,27 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-
 import java.util.List;
-
 public class ControllerInterfazSolitaire {
+    // Componentes de la interfaz
     @FXML private HBox reservasHBox;
     @FXML private VBox foundationsVBox;
     @FXML private HBox tableausHBox;
     @FXML private Button btnSalir;
     @FXML private Button btnPista;
     @FXML private Button btnUndo;
-
+    // Instancia de la clase que contiene la lógica del juego
     private EightOffGame game;
+    // Cantidad de cartas seleccionadas
     private int selectedCantidad = 1;
-
+    // Medidas de la carta y separaciones para el tableau
     private static final double CARTA_W = 90;
     private static final double CARTA_H = 130;
     private static final double SEPARACION_Y = 50;
-
+    // Constantes que contienen estilos de diseño para las cartas según su estado
     private static final String ESTILO_CARTA_TRANSPARENTE =
             "-fx-border-color: black; -fx-border-width: 2; -fx-border-radius: 16; " +
                     "-fx-background-radius: 16; -fx-background-color: transparent;";
@@ -45,12 +43,13 @@ public class ControllerInterfazSolitaire {
             ESTILO_CARTA_TRANSPARENTE +
                     " -fx-border-color: #33ccff; -fx-border-width: 3;" +
                     " -fx-effect: dropshadow(gaussian, rgba(50,200,255,0.9), 20, 0.3, 0, 0);";
-
+    // Enum para contener la selección en las cartas
     private enum Seleccion {NADA, TABLEAU, RESERVA}
     private Seleccion seleccion = Seleccion.NADA;
+    // Atributos para los índices
     private int seleccionIdx = -1;
     private int pistaReservaIdx = -1;
-
+    // Inicializa las instancias necesarias, los botones y dibuja la interfaz
     @FXML
     private void initialize() {
         game = new EightOffGame();
@@ -62,6 +61,10 @@ public class ControllerInterfazSolitaire {
         btnPista.setOnAction(e -> mostrarPista());
         dibujar();
     }
+    /*
+     * Invoca los métodos para dibujar los componentes de la interfaz,
+     * y evalúa si el jugador ganó, después evalúa si perdió
+     */
     private void dibujar() {
         dibujarReservas();
         dibujarFoundations();
@@ -82,8 +85,8 @@ public class ControllerInterfazSolitaire {
             a.showAndWait();
             initialize();
         }
-
     }
+    // Dibuja el stackPane de reservas
     private void dibujarReservas() {
         int n = reservasHBox.getChildren().size();
         for (int i = 0; i < n; i++) {
@@ -101,6 +104,12 @@ public class ControllerInterfazSolitaire {
             sp.setMouseTransparent(false);
         }
     }
+    /*
+     * Cuando se clickea una reserva se invoca,
+     * si ya hay una selección previa se invoca el movimiento identificando
+     * la reserva como destino, si no hay NADA seleccionado,
+     * se detecta como origen la reserva
+     */
     private void onClickReserva(int idxReserva) {
         Carta top = game.getTopReservas(idxReserva);
         pistaReservaIdx = -1;
@@ -126,6 +135,7 @@ public class ControllerInterfazSolitaire {
             }
         }
     }
+    // Mueve de reserva a fundación recibiendo el índice de la reserva
     private boolean moverReservaAFundacion(int idxReserva) {
         Carta top = game.getTopReservas(idxReserva);
         if (top == null) return false;
@@ -134,6 +144,7 @@ public class ControllerInterfazSolitaire {
         if (ok) limpiarSeleccion();
         return ok;
     }
+    // Recibe el índice del foundation según el palo
     private int gameFoundationIndexFromPalo(Palo p) {
         for (int i = 0; i < game.foundations.length; i++) {
             Foundation f = game.foundations[i];
@@ -141,6 +152,8 @@ public class ControllerInterfazSolitaire {
         }
         return -1;
     }
+    // Dibuja los 4 foundations, si no contiene cartas se pone en sus labels
+    // sus símbolos según el palo, caso contrario se dispone la carta
     private void dibujarFoundations() {
         for (int ui = 0; ui < foundationsVBox.getChildren().size(); ui++) {
             StackPane sp = (StackPane) foundationsVBox.getChildren().get(ui);
@@ -163,6 +176,7 @@ public class ControllerInterfazSolitaire {
             sp.setMouseTransparent(false);
         }
     }
+    // Recibe un StackPane y lo diseña para cuando no contiene una carta
     public void setFoundationVacia(StackPane sp, Palo palo) {
         if (sp.getChildren().size() < 2) return;
         Label labelCentro  = (Label) sp.getChildren().get(0);
@@ -178,6 +192,8 @@ public class ControllerInterfazSolitaire {
         labelEsquina.setStyle(color);
         sp.setStyle(ESTILO_CARTA_TRANSPARENTE);
     }
+    // Se invoca cuando  se selecciona un foundation, invoca
+    // el movimiento de la clase de la lógica del juego
     private void onClickFoundation(int uiIdx) {
         Palo paloDestino = switch (uiIdx) {
             case 0 -> Palo.PICA;
@@ -197,6 +213,12 @@ public class ControllerInterfazSolitaire {
             case NADA -> {}
         }
     }
+    /*
+     * Dibuja los tableaus, dejando separación entre sus cartas
+     * para c/d carta crea un stackPane y determina si puede o no
+     * clickearse, solo es clickeable si se encuentra en el Top,
+     * o si forma una escalera con la carta top
+     */
     private void dibujarTableaus() {
         final double SALTO = SEPARACION_Y;
         for (int i = 0; i < tableausHBox.getChildren().size(); i++) {
@@ -232,6 +254,11 @@ public class ControllerInterfazSolitaire {
             colVBox.getChildren().add(tableau);
         }
     }
+    /*
+    * Verifica si desde el idx inicial hasta la carta top, se conforma una escalera;
+    * mismo palo y valores descendentes
+    * retorna true si puede moverse ese conjunto, false en caso contrario
+     */
     private boolean escaleraHastaTope(List<Carta> cartas, int inicioIdx) {
         int n = cartas.size();
         if (inicioIdx < 0 || inicioIdx >= n) return false;
@@ -245,6 +272,12 @@ public class ControllerInterfazSolitaire {
         }
         return true;
     }
+    /*
+    * Se invoca al clickear sobre un tableau
+    * Si no hay una selección previa toma desde la carta hasta el tope
+    * Si ya hay selección previa desde otro tableau intenta mover la Lista de Cartas contenida hacia el tableau
+    * Si se da click en la misma columna ya seleccionada intenta mover al foundation
+     */
     private void onClickTableau(int colDestino, int startIndexClic) {
         pistaReservaIdx = -1;
         List<Carta> cartasCol = game.getTableau(colDestino).toList();
@@ -273,6 +306,7 @@ public class ControllerInterfazSolitaire {
             }
         }
     }
+    // Intenta mover la carta top del tableau de origen a su foundation, retorna boolean
     private boolean moverTableauAFundacion(int colOrigen) {
         Carta top = game.getTopTableau(colOrigen);
         if (top == null) return false;
@@ -281,6 +315,7 @@ public class ControllerInterfazSolitaire {
         if (ok) limpiarSeleccion();
         return ok;
     }
+    // Reestablece los estados de selección y redibuja
     private void limpiarSeleccion() {
         seleccion = Seleccion.NADA;
         seleccionIdx = -1;
@@ -288,6 +323,8 @@ public class ControllerInterfazSolitaire {
         pistaReservaIdx = -1;
         dibujar();
     }
+    // Pinta el contenido de un stackPane (centro y esquina superior izquierda)
+    // si la carta=null, carta transparente, si no, coloca su palo y valor
     public void setLabelsStackPane(StackPane sp, Carta c){
         if (sp.getChildren().size() < 2) return;
         Label labelCentro  = (Label) sp.getChildren().get(0);
@@ -316,6 +353,9 @@ public class ControllerInterfazSolitaire {
         labelEsquina.setStyle(color);
         sp.setStyle(ESTILO_CARTA_NO_TRANSPARENTE);
     }
+    // Crea un stackPane vacío
+    // Se usa como hueco inicial de c/d columna y como destino clickeable
+    // para soltar cartas
     private StackPane hacerCartaVacia() {
         StackPane sp = new StackPane();
         sp.setPrefSize(CARTA_W, CARTA_H);
@@ -332,6 +372,8 @@ public class ControllerInterfazSolitaire {
         sp.getChildren().addAll(center, corner);
         return sp;
     }
+    // Crea un stackPane de una carta visible: con fondo, borde, etc
+    // Sus labels se colocan con setLabelStackPane()
     private StackPane hacerCartaNoTransparente() {
         StackPane sp = new StackPane();
         sp.setPrefSize(CARTA_W, CARTA_H);
@@ -348,6 +390,12 @@ public class ControllerInterfazSolitaire {
         sp.setStyle(ESTILO_CARTA_NO_TRANSPARENTE);
         return sp;
     }
+    /*
+     * Solicita una pista a la lógica del juego y refleja en la interfaz la sugerencia
+     * Si la pista es tableau -> reserva, pinta el espacio de reserva de azul (sugerencia)
+     * Si la pista es tableau o reserva como origen, marca esa carta como seleccionada
+     * Si no hay más movimientos muestra un Alert
+     */
     private void mostrarPista() {
         RegistroMovimiento mov = game.pista();
         if (mov == null) {

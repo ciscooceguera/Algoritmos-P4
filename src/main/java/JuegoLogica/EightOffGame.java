@@ -1,17 +1,14 @@
 package JuegoLogica;
-
 import Logica.Carta;
 import Logica.Mazo;
 import Logica.Palo;
 import javafx.scene.control.Alert;
-
 public class EightOffGame {
     public final Mazo mazo;
     private final Tableau[] tableaus;
     private final Reserva[] reservas;
     public final Foundation[] foundations;
     private final ListaSimple<RegistroMovimiento> undo;
-
     public EightOffGame() {
         mazo = new Mazo();
         System.out.println(mazo);
@@ -21,6 +18,8 @@ public class EightOffGame {
         undo = new ListaSimple<>();
         iniciarComponentes();
     }
+    // ====== Iniciar partida ======
+    // Inicializa los tableaus, las reservas y foundations
     public void iniciarComponentes() {
         for (int i = 0; i < tableaus.length; i++) {
             tableaus[i] = new Tableau();
@@ -31,6 +30,12 @@ public class EightOffGame {
             foundations[i] = new Foundation(ordenPalos[i]);
         }
     }
+    /*
+    * Inicia la partida, primero limpia todos los componentes
+    * involucrados en la lógica del juego, después utiliza el mazo
+    * para llenar los tableaus: 8 columnas y 6 filas, las 4 cartas
+    * restantes las coloca en la reserva
+     */
     public void iniciarNuevaPartida(){
         limpiarComponentes();
         for (int fila = 0; fila<6; fila++) {
@@ -49,12 +54,29 @@ public class EightOffGame {
             reservas[i].push(carta);
         }
     }
+    /*
+     * Limpia los componentes involucrados en la lógica del juego:
+     * Los tableaus, los slots de reserva, los foundations y todos
+     * los movimientos registrados
+     */
     public void limpiarComponentes() {
         for(Tableau tableau : tableaus) tableau.clear();
         for (Reserva reserva : reservas) reserva.clear();
         for (Foundation foundation : foundations) foundation.clear();
         while (undo.eliminaFinal()!=null){}
     }
+    // ========= MOVIMIENTOS =========
+    /*
+     * Funciones para identificar los movimientos:
+     * reciben el índice de origen ya sea del tableau o
+     * de la reserva, y el índice de destino; ya sea de reserva,
+     * tableau o foundation, después guarda la carta más externa
+     * del tableau respectivo, y evalúa si el movimiento es válido,
+     * en caso de que así sea, quita la carta del tableau y
+     * agrega al registro de movimientos el movimiento realizado.
+     * El funcionamiento es prácticamente el mismo para todos
+     * los movimientos
+     */
     public boolean moverTaR(int from, int to){
         Carta mov = tableaus[from].peek();
         if (mov == null) return false;
@@ -75,7 +97,6 @@ public class EightOffGame {
         }
         return false;
     }
-
     public boolean moverTaF(int from, int to){
         Carta mov = tableaus[from].peek();
         if (mov == null) return false;
@@ -98,12 +119,55 @@ public class EightOffGame {
         }
         return false;
     }
+    /*
+    * Movimiento tableau -> tableau, moviendo varias cartas en conjunto,
+    * recibe la cantidad de cartas que contiene el conjunto o escalera,
+    * realiza validaciones para verificar que los índices sean coherentes,
+    * y almacena la escalera utilizando topN(int n) de ListaSimple, que
+    * obtiene los últimos N nodos contenidos en la lista, posteriormente
+    * evalúa la validez de la escalera, y si se puede colocar en el idx
+    * de destino, si no pueden moverse, regresa las cartas al origen,
+    * caso contrario realiza el movimiento y registra el movimiento utilizando
+    * la ListaSimple undo
+     */
+    public boolean moverTaT(int from, int to, int cantidad) {
+        if (from == to || cantidad <= 0) return false;
+        if (from < 0 || from >= tableaus.length || to < 0 || to >= tableaus.length) return false;
+        if (tableaus[from].size() < cantidad) return false;
+        ListaSimple<Carta> escalera = tableaus[from].topN(cantidad);
+        if (escalera == null || escalera.getSize() == 0) return false;
+        if (!tableaus[from].escaleraValido(escalera)) return false;
+        if (!tableaus[to].puedoColocarEscalera(escalera)) return false;
+        ListaSimple<Carta> movidas = tableaus[from].popN(cantidad);
+        if (!tableaus[to].pushEscalera(movidas)) {
+            tableaus[from].pushAllInicial(movidas);
+            return false;
+        }
+        Carta topMovida = movidas.getPosicion(movidas.getSize() - 1);
+        undo.insertaFinal(RegistroMovimiento.tt(from, to, topMovida, cantidad));
+        return true;
+    }
+    // Retorna el índice del foundation, recibe el palo y recorre los foundations hasta
+    // encontrar el que se busca
     private int getIdxFoundation(Palo palo){
         for (int i = 0; i<foundations.length; i++) {
             if (foundations[i].getPalo().equals(palo)) return i;
         }
         return -1;
     }
+    /*
+    * Da una pista, primeramente recorre las reservas y evalúa si la
+    * carta de c/d una ellas puede colocarse en algún foundation, si
+    * encuentra una coincidencia retorna el movimiento, caso contrario
+    * continúa a evaluar la misma condición pero para realizar un movimiento
+    * tableau a foundation, si no se encontró coincidencia procede a
+    * recorrer las reservas para ver si se puede realizar un movimiento
+    * reserva -> tableau, si no encuentra coincidencia, recorre los
+    * tableaus para evaluar movimientos tableau -> tableau
+    * y finalmente evalúa los últimos movimientos posibles que es
+    * mover una carta de un tableau a la reserva, si no haya coincidencias
+    * muestra una alerta de derrota, y reinicia el juego
+     */
     public RegistroMovimiento pista(){
         for (int r = 0; r < 8; r++) {
             Carta c = reservas[r].peek();
@@ -148,6 +212,8 @@ public class EightOffGame {
         iniciarComponentes();
         return null;
     }
+    // Retorna boolean y evalúa si hay movimientos disponibles para retornar
+    // la pista, o el mensaje de victoria
     public boolean sinMovimientos(){
         for (int i = 0; i<tableaus.length; i++) {
             System.out.println("Tableau " + i + tableaus[i].getTableau().mostrarLista() + "\n");
@@ -164,6 +230,11 @@ public class EightOffGame {
             return pista() == null;
         }
     }
+    /*
+     * Evalúa si se gano, para ello se deben validar 2 situaciones:
+     * 1. Ya no hay movimientos disponibles
+     * 2. Todos los foundations tienen sus reyes
+     */
     public boolean evaluarVictoria(){
         for (int i = 0; i<tableaus.length; i++) {
             System.out.println("Tableau " + i + tableaus[i].getTableau().mostrarLista() + "\n");
@@ -178,6 +249,7 @@ public class EightOffGame {
         }
         return false;
     }
+    // Muestra un alert de victoria
     public void victoria(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Victoria!");
@@ -185,6 +257,14 @@ public class EightOffGame {
         alert.setContentText("Felicidades, ganaste !");
         alert.showAndWait();
     }
+    /*
+    * Undo, recibe de la ListaSimple<RegistroMovimiento> undo el último
+    * movimiento registrado, evalúa que no sea null, y hace un switch-case
+    * para c/d caso en cada movimiento posible, y realiza la operación inversa
+    * al movimiento que se haya realizado, el único case distinto
+    * es que en el tableau->tableau se recibe una ListaSimple<Carta> por si
+    * se movieron varias cartas juntas
+     */
     public boolean deshacer(){
         RegistroMovimiento ultimoMov = undo.eliminaFinal();
         if (ultimoMov == null) return false;
@@ -214,23 +294,7 @@ public class EightOffGame {
         }
         return true;
     }
-    public boolean moverTaT(int from, int to, int cantidad) {
-        if (from == to || cantidad <= 0) return false;
-        if (from < 0 || from >= tableaus.length || to < 0 || to >= tableaus.length) return false;
-        if (tableaus[from].size() < cantidad) return false;
-        ListaSimple<Carta> run = tableaus[from].topN(cantidad);
-        if (run == null || run.getSize() == 0) return false;
-        if (!tableaus[from].escaleraValido(run)) return false;
-        if (!tableaus[to].puedoColocarEscalera(run)) return false;
-        ListaSimple<Carta> movidas = tableaus[from].popN(cantidad);
-        if (!tableaus[to].pushEscalera(movidas)) {
-            tableaus[from].pushAllInicial(movidas);
-            return false;
-        }
-        Carta topMovida = movidas.getPosicion(movidas.getSize() - 1);
-        undo.insertaFinal(RegistroMovimiento.tt(from, to, topMovida, cantidad));
-        return true;
-    }
+    // Getters
     public Carta getTopTableau(int col){ return tableaus[col].peek(); }
     public Carta getTopReservas(int i){ return reservas[i].peek(); }
     public Carta getTopFoundation(int i){ return foundations[i].peek(); }

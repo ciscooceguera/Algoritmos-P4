@@ -1,19 +1,17 @@
 package JuegoLogica;
 
 import Logica.Carta;
-
 public class RegistroMovimiento {
     // enum de los tipos de movimientos posibles
     public enum Tipo{TT, TR, RT, TF, RF}
     // enum de los posibles destinos
     public enum OrigenDestino {TABLEAU, RESERVE, FOUNDATION}
-
     public final Tipo tipo;
     public final OrigenDestino from, to;
     public final int fromIdx, toIdx;
     public final Carta carta;
     public int cantidad = 0;
-
+    // Constructor para movimiento de una carta
     public RegistroMovimiento(Tipo tipo,
                               OrigenDestino from, int fromIdx,
                               OrigenDestino to, int toIdx,
@@ -25,6 +23,7 @@ public class RegistroMovimiento {
         this.from = from;
         this.to = to;
     }
+    // Constructor para varias cartas, cantidad recibe el tamaño de la lista
     public RegistroMovimiento(Tipo tipo,
                               OrigenDestino from, int fromIdx,
                               OrigenDestino to, int toIdx,
@@ -37,6 +36,11 @@ public class RegistroMovimiento {
         this.to = to;
         this.cantidad = cantidad;
     }
+    /*
+     * Retorna una instancia de la clase, dependiendo del movimiento
+     * que se vaya a realizar, se reciben los parámetros necesarios
+     * para almacenar el movimiento en caso de requerir un undo
+     */
     public static RegistroMovimiento tt(int from, int to, Carta carta) {
         return new RegistroMovimiento(Tipo.TT,
                 OrigenDestino.TABLEAU, from,

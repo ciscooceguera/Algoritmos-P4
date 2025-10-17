@@ -1,9 +1,7 @@
 package JuegoLogica;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-
 public class ListaSimple<T> {
     private Nodo<T> inicio;
     public ListaSimple() {
