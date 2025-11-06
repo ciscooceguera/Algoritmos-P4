@@ -507,26 +507,9 @@ public class ControllerInterfazSolitaire {
             System.out.println(numMov);
             mov = mov.getSiguiente();
         }
+        undoLV.getItems().add("Movimiento actual");
     }
-    public void aplicarSeleccionHistorial() {
-        int idxSeleccion = undoLV.getSelectionModel().getSelectedIndex();
-        if (idxSeleccion < 0) return;
-        ListaDoble<RegistroMovimiento> mov = game.getHistorialMovimientos();
-        if (mov == null) return;
-        int size = mov.getSize();
-        if (size <= 0) return;
-        int undos = size - idxSeleccion;
-        if (undos < 0) undos = 0;
-        for (int i = 0; i < undos; i++) {
-            if (!game.deshacer()) break;
-        }
-        seleccion = Seleccion.NADA;
-        seleccionIdx = -1;
-        selectedCantidad = 1;
-        pistaReservaIdx = -1;
-        setHistorialLV();
-        dibujar();
-    }
+
     private void ajustarHastaUndoSize(int target) {
         while (sizeActual > target) {
             if (!game.deshacer()) break;
