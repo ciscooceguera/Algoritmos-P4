@@ -1,16 +1,21 @@
 package com.example.practica4algoritmos;
 import JuegoLogica.EightOffGame;
 import JuegoLogica.Foundation;
+import JuegoLogica.ListaDoble;
 import JuegoLogica.RegistroMovimiento;
 import Logica.Carta;
+import Logica.NodoDoble;
 import Logica.Palo;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Font;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import java.util.List;
 public class ControllerInterfazSolitaire {
@@ -21,6 +26,14 @@ public class ControllerInterfazSolitaire {
     @FXML private Button btnSalir;
     @FXML private Button btnPista;
     @FXML private Button btnUndo;
+    @FXML private Button btnRedo;
+    @FXML private Button btnHistorial;
+    // Atributos para el historial
+    private boolean cambioHistorial = false;
+    private int undoSize = 0;
+    private int sizeActual = 0;
+    ListView<String> undoLV;
+    ListView<String> redoLV;
     // Instancia de la clase que contiene la lógica del juego
     private EightOffGame game;
     // Cantidad de cartas seleccionadas
@@ -58,8 +71,14 @@ public class ControllerInterfazSolitaire {
         btnUndo.setOnAction(e -> {
             if (game.deshacer()) limpiarSeleccion();
         });
+        btnRedo.setOnAction(e -> {
+            if (game.rehacer()) limpiarSeleccion();
+        });
         btnPista.setOnAction(e -> mostrarPista());
         dibujar();
+        btnHistorial.setOnAction(e -> {
+           abrirHistorial();
+        });
     }
     /*
      * Invoca los métodos para dibujar los componentes de la interfaz,
@@ -76,6 +95,7 @@ public class ControllerInterfazSolitaire {
             a.setContentText("VICTORIA, se iniciará un nuevo juego...");
             a.showAndWait();
             initialize();
+            return;
         }
         if(game.sinMovimientos()){
             Alert a = new Alert(Alert.AlertType.INFORMATION);
@@ -262,11 +282,13 @@ public class ControllerInterfazSolitaire {
     private boolean escaleraHastaTope(List<Carta> cartas, int inicioIdx) {
         int n = cartas.size();
         if (inicioIdx < 0 || inicioIdx >= n) return false;
-        if (inicioIdx == n - 1) return true;
+        Carta cTop = cartas.get(inicioIdx);
+        if (inicioIdx == n - 1) return cTop != null;
         for (int t = inicioIdx + 1; t < n; t++) {
             Carta abajo  = cartas.get(t - 1);
             Carta arriba = cartas.get(t);
-            boolean mismoPalo = arriba.getPalo() == abajo.getPalo();
+            if (abajo == null || arriba == null) return false;
+            boolean mismoPalo   = (arriba.getPalo() == abajo.getPalo());
             boolean descendente = (abajo.getValor() - 1) == arriba.getValor();
             if (!(mismoPalo && descendente)) return false;
         }
@@ -419,4 +441,111 @@ public class ControllerInterfazSolitaire {
         }
         dibujar();
     }
+    /*
+    * HISTORIAL
+     */
+    public void abrirHistorial(){
+        Stage stage = new Stage();
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.setTitle("Historial de movimientos");
+        undoLV = new ListView<>();
+        redoLV = new ListView<>();
+        Button btnUndoHistorial = new Button("Undo");
+        Button btnRedoHistorial = new Button("Redo");
+        Button btnConfirmar     = new Button ("Confirmar");
+        undoSize = game.getUndoSize();
+        sizeActual = undoSize;
+        cambioHistorial = false;
+        btnUndoHistorial.setOnAction(e -> {
+            if (game.deshacer()) {
+                sizeActual--;
+                dibujar();
+            }
+        });
+        btnRedoHistorial.setOnAction(e -> {
+            if (game.rehacer()) {
+                sizeActual++;
+                dibujar();
+            }
+        });
+        setHistorialLV();
+        undoLV.setOnMouseClicked(e -> {
+            if (undoLV.getSelectionModel().getSelectedIndex() < 0) return;
+            previewHistorial(undoLV.getSelectionModel().getSelectedIndex());
+        });
+        btnConfirmar.setOnAction(e -> {
+            game.clearRedo();                 // eliminamos movimientos “futuros”
+            cambioHistorial = true;
+            setHistorialLV();                 // ahora sí, la lista refleja el nuevo undo
+            dibujar();
+        });
+        stage.setOnCloseRequest(e -> {
+            if (!cambioHistorial) {
+                ajustarHastaUndoSize(undoSize);
+                dibujar();
+            }
+        });
+        HBox barraBtns = new HBox(10, btnUndoHistorial, btnRedoHistorial, btnConfirmar);
+        barraBtns.setPadding(new Insets(12,12,6,12));
+        VBox vbox = new VBox(8, new Label("Movimientos"), undoLV);
+        vbox.setPadding(new Insets(6,12,12,12));
+        VBox.setVgrow(undoLV, Priority.ALWAYS);
+        VBox main = new VBox(0, barraBtns, vbox);
+        stage.setScene(new Scene(main, 520, 420));
+        stage.show();
+    }
+    public void setHistorialLV() {
+        undoLV.getItems().clear();
+        redoLV.getItems().clear();
+        ListaDoble<RegistroMovimiento> historial = game.getHistorialMovimientos();
+        if (historial==null) return;
+        int numMov = historial.getSize();
+        NodoDoble<RegistroMovimiento> mov = historial.getInicio();
+        while (mov!=null){
+            undoLV.getItems().add("Movimiento " + mov.getInfo().toString());
+            numMov--;
+            System.out.println(numMov);
+            mov = mov.getSiguiente();
+        }
+    }
+    public void aplicarSeleccionHistorial() {
+        int idxSeleccion = undoLV.getSelectionModel().getSelectedIndex();
+        if (idxSeleccion < 0) return;
+        ListaDoble<RegistroMovimiento> mov = game.getHistorialMovimientos();
+        if (mov == null) return;
+        int size = mov.getSize();
+        if (size <= 0) return;
+        int undos = size - idxSeleccion;
+        if (undos < 0) undos = 0;
+        for (int i = 0; i < undos; i++) {
+            if (!game.deshacer()) break;
+        }
+        seleccion = Seleccion.NADA;
+        seleccionIdx = -1;
+        selectedCantidad = 1;
+        pistaReservaIdx = -1;
+        setHistorialLV();
+        dibujar();
+    }
+    private void ajustarHastaUndoSize(int target) {
+        while (sizeActual > target) {
+            if (!game.deshacer()) break;
+            sizeActual--;
+        }
+        while (sizeActual < target) {
+            if (!game.rehacer()) break;
+            sizeActual++;
+        }
+    }
+    private void previewHistorial(int idxSeleccion) {
+        int undoSizeIdeal = idxSeleccion;
+        if (undoSizeIdeal < 0) undoSizeIdeal = 0;
+        ajustarHastaUndoSize(undoSizeIdeal);
+        seleccion = Seleccion.NADA;
+        seleccionIdx = -1;
+        selectedCantidad = 1;
+        pistaReservaIdx = -1;
+        dibujar();
+    }
+
 }

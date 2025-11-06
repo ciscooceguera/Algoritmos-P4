@@ -9,6 +9,7 @@ public class RegistroMovimiento {
     public final Tipo tipo;
     public final OrigenDestino from, to;
     public final int fromIdx, toIdx;
+    public String tipoString;
     public final Carta carta;
     public int cantidad = 0;
     // Constructor para movimiento de una carta
@@ -17,6 +18,23 @@ public class RegistroMovimiento {
                               OrigenDestino to, int toIdx,
                               Carta carta) {
         this.tipo = tipo;
+        switch(tipo){
+            case TT:
+                tipoString = "Tableau a Tableau";
+                break;
+            case TR:
+                tipoString = "Tableau a Reserva";
+                break;
+            case RT:
+                tipoString = "Reserva a Tableau";
+                break;
+            case TF:
+                tipoString = "Tableau a Foundation";
+                break;
+            case RF:
+                tipoString = "Reserva a Foundation";
+                break;
+        }
         this.fromIdx = fromIdx;
         this.toIdx = toIdx;
         this.carta = carta;
@@ -70,5 +88,8 @@ public class RegistroMovimiento {
         return new RegistroMovimiento(Tipo.RF,
                 OrigenDestino.RESERVE, from,
                 OrigenDestino.FOUNDATION, to, carta);
+    }
+    public String toString() {
+        return carta.toString() + "->" + tipoString;
     }
 }

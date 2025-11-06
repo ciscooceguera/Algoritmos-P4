@@ -8,14 +8,16 @@ public class EightOffGame {
     private final Tableau[] tableaus;
     private final Reserva[] reservas;
     public final Foundation[] foundations;
-    private final ListaSimple<RegistroMovimiento> undo;
+    private final ListaDoble<RegistroMovimiento> undo;
+    private final ListaDoble<RegistroMovimiento> redo;
+
     public EightOffGame() {
         mazo = new Mazo();
-        System.out.println(mazo);
         tableaus = new Tableau[8];
         reservas = new Reserva[8];
         foundations = new Foundation[4];
-        undo = new ListaSimple<>();
+        undo = new ListaDoble<>();
+        redo = new ListaDoble<>();
         iniciarComponentes();
     }
     // ====== Iniciar partida ======
@@ -46,9 +48,6 @@ public class EightOffGame {
                 }
             }
         }
-        for (Tableau tableau : tableaus) {
-            System.out.println(tableau.getTableau().mostrarLista());
-        }
         for (int i = 0; i<4; i++){
             Carta carta = mazo.getMazo().eliminaFin();
             reservas[i].push(carta);
@@ -63,7 +62,7 @@ public class EightOffGame {
         for(Tableau tableau : tableaus) tableau.clear();
         for (Reserva reserva : reservas) reserva.clear();
         for (Foundation foundation : foundations) foundation.clear();
-        while (undo.eliminaFinal()!=null){}
+        while (undo.eliminarFin()!=null){}
     }
     // ========= MOVIMIENTOS =========
     /*
@@ -82,9 +81,11 @@ public class EightOffGame {
         if (mov == null) return false;
         if (reservas[to].push(mov)){
             tableaus[from].pop();
-            undo.insertaFinal(RegistroMovimiento.tr(from,to,mov));
+            undo.insertarFin(RegistroMovimiento.tr(from,to,mov));
+            redo.clear();
             return true;
         }
+        redo.clear();
         return false;
     }
     public boolean moverRaT(int from, int to){
@@ -92,7 +93,8 @@ public class EightOffGame {
         if (mov == null) return false;
         if (tableaus[to].push(mov)){
             reservas[from].pop();
-            undo.insertaFinal(RegistroMovimiento.rt(from,to,mov));
+            undo.insertarFin(RegistroMovimiento.rt(from,to,mov));
+            redo.clear();
             return true;
         }
         return false;
@@ -103,7 +105,8 @@ public class EightOffGame {
         int idx = getIdxFoundation(mov.getPalo());
         if (foundations[idx].push(mov)){
             tableaus[from].pop();
-            undo.insertaFinal(RegistroMovimiento.tf(from,to,mov));
+            undo.insertarFin(RegistroMovimiento.tf(from,idx,mov));
+            redo.clear();
             return true;
         }
         return false;
@@ -114,7 +117,8 @@ public class EightOffGame {
         int idx = getIdxFoundation(mov.getPalo());
         if (foundations[idx].push(mov)){
             reservas[from].pop();
-            undo.insertaFinal(RegistroMovimiento.rf(from,to,mov));
+            undo.insertarFin(RegistroMovimiento.rf(from,idx,mov));
+            redo.clear();
             return true;
         }
         return false;
@@ -141,10 +145,11 @@ public class EightOffGame {
         ListaSimple<Carta> movidas = tableaus[from].popN(cantidad);
         if (!tableaus[to].pushEscalera(movidas)) {
             tableaus[from].pushAllInicial(movidas);
+            redo.clear();
             return false;
         }
         Carta topMovida = movidas.getPosicion(movidas.getSize() - 1);
-        undo.insertaFinal(RegistroMovimiento.tt(from, to, topMovida, cantidad));
+        undo.insertarFin(RegistroMovimiento.tt(from, to, topMovida, cantidad));
         return true;
     }
     // Retorna el índice del foundation, recibe el palo y recorre los foundations hasta
@@ -215,9 +220,6 @@ public class EightOffGame {
     // Retorna boolean y evalúa si hay movimientos disponibles para retornar
     // la pista, o el mensaje de victoria
     public boolean sinMovimientos(){
-        for (int i = 0; i<tableaus.length; i++) {
-            System.out.println("Tableau " + i + tableaus[i].getTableau().mostrarLista() + "\n");
-        }
         int r;
         for (r = 0; r < foundations.length; r++) {
             if (foundations[r].getFoundation().getFin() == null) break;
@@ -236,9 +238,6 @@ public class EightOffGame {
      * 2. Todos los foundations tienen sus reyes
      */
     public boolean evaluarVictoria(){
-        for (int i = 0; i<tableaus.length; i++) {
-            System.out.println("Tableau " + i + tableaus[i].getTableau().mostrarLista() + "\n");
-        }
         int r;
         for (r = 0; r < foundations.length; r++) {
             if (foundations[r].getFoundation().getFin() == null) break;
@@ -266,7 +265,7 @@ public class EightOffGame {
     * se movieron varias cartas juntas
      */
     public boolean deshacer(){
-        RegistroMovimiento ultimoMov = undo.eliminaFinal();
+        RegistroMovimiento ultimoMov = undo.eliminarFin();
         if (ultimoMov == null) return false;
 
         switch (ultimoMov.tipo){
@@ -292,6 +291,36 @@ public class EightOffGame {
                 reservas[ultimoMov.fromIdx].push(c);
             }
         }
+        redo.insertarFin(ultimoMov);
+        return true;
+    }
+    public boolean rehacer() {
+        RegistroMovimiento mov = redo.eliminarFin();
+        if (mov == null) return false;
+        switch (mov.tipo) {
+            case TT -> {
+                int k = Math.max(1, mov.cantidad);
+                ListaSimple<Carta> pack = tableaus[mov.fromIdx].popN(k);
+                tableaus[mov.toIdx].pushAllInicial(pack);
+            }
+            case TR -> {
+                Carta c = tableaus[mov.fromIdx].pop();
+                reservas[mov.toIdx].push(c);
+            }
+            case RT -> {
+                Carta c = reservas[mov.fromIdx].pop();
+                tableaus[mov.toIdx].pushInicial(c);
+            }
+            case TF -> {
+                Carta c = tableaus[mov.fromIdx].pop();
+                foundations[mov.toIdx].push(c);
+            }
+            case RF -> {
+                Carta c = reservas[mov.fromIdx].pop();
+                foundations[mov.toIdx].push(c);
+            }
+        }
+        undo.insertarFin(mov);
         return true;
     }
     // Getters
@@ -299,4 +328,14 @@ public class EightOffGame {
     public Carta getTopReservas(int i){ return reservas[i].peek(); }
     public Carta getTopFoundation(int i){ return foundations[i].peek(); }
     public ListaSimple<Carta> getTableau(int idx){ return tableaus[idx].getTableau(); }
+    public ListaDoble<RegistroMovimiento> getHistorialMovimientos(){
+        return undo;
+    }
+    // Auxiliares para historial
+    public void clearRedo() {
+        while (redo.eliminarFin() != null) {}
+    }
+    public int getUndoSize() {
+        return undo.getSize();
+    }
 }
