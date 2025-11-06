@@ -144,6 +144,8 @@ public class EightOffGame {
         alert.setHeaderText(null);
         alert.setContentText("No hay más movimientos posibles.");
         alert.showAndWait();
+        limpiarComponentes();
+        iniciarComponentes();
         return null;
     }
     public boolean sinMovimientos(){
@@ -161,6 +163,20 @@ public class EightOffGame {
         } else {
             return pista() == null;
         }
+    }
+    public boolean evaluarVictoria(){
+        for (int i = 0; i<tableaus.length; i++) {
+            System.out.println("Tableau " + i + tableaus[i].getTableau().mostrarLista() + "\n");
+        }
+        int r;
+        for (r = 0; r < foundations.length; r++) {
+            if (foundations[r].getFoundation().getFin() == null) break;
+            if (foundations[r].getFoundation().getFin().getValor() != 13 ) break;
+        }
+        if ( r == 3 ){
+            return true;
+        }
+        return false;
     }
     public void victoria(){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
