@@ -24,6 +24,7 @@ public class ControllerInterfazSolitaire {
     @FXML private Button btnSalir;
     @FXML private Button btnPista;
     @FXML private Button btnUndo;
+    @FXML private Button btnHistorial;
 
     private EightOffGame game;
     private int selectedCantidad = 1;
@@ -60,6 +61,9 @@ public class ControllerInterfazSolitaire {
             if (game.deshacer()) limpiarSeleccion();
         });
         btnPista.setOnAction(e -> mostrarPista());
+        btnHistorial.setOnAction(e -> {
+            mostrarHistorial();
+        });
         dibujar();
     }
     private void dibujar() {
@@ -370,5 +374,8 @@ public class ControllerInterfazSolitaire {
             default -> { seleccion = Seleccion.NADA; seleccionIdx = -1; }
         }
         dibujar();
+    }
+    public void mostrarHistorial(){
+
     }
 }

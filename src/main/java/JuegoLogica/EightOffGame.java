@@ -231,6 +231,7 @@ public class EightOffGame {
         undo.insertaFinal(RegistroMovimiento.tt(from, to, topMovida, cantidad));
         return true;
     }
+
     public Carta getTopTableau(int col){ return tableaus[col].peek(); }
     public Carta getTopReservas(int i){ return reservas[i].peek(); }
     public Carta getTopFoundation(int i){ return foundations[i].peek(); }
