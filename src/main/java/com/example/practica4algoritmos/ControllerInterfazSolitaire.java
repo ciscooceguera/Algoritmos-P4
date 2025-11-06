@@ -474,9 +474,9 @@ public class ControllerInterfazSolitaire {
             previewHistorial(undoLV.getSelectionModel().getSelectedIndex());
         });
         btnConfirmar.setOnAction(e -> {
-            game.clearRedo();                 // eliminamos movimientos “futuros”
+            game.clearRedo();
             cambioHistorial = true;
-            setHistorialLV();                 // ahora sí, la lista refleja el nuevo undo
+            setHistorialLV();
             dibujar();
         });
         stage.setOnCloseRequest(e -> {
