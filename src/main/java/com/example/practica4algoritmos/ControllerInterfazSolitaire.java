@@ -444,6 +444,10 @@ public class ControllerInterfazSolitaire {
     /*
     * HISTORIAL
      */
+    /*
+    * Crea la ventana para mostrar el historial:
+    * el stage, buttons, listView para mostrar el listado de movimientos
+     */
     public void abrirHistorial(){
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
@@ -494,6 +498,13 @@ public class ControllerInterfazSolitaire {
         stage.setScene(new Scene(main, 520, 420));
         stage.show();
     }
+    /*
+    * Coloca el listado de los movimientos, primero vacía undoLV y redoLV
+    * que son ListViews y cada uno corresponde a las listas dobles incluidas
+    * en la lógica del juego. Primero les hace clear, y usa un getter para
+    * obtener la lista doble de movimientos realizados, y usa un ciclo para
+    * mostrarlos en el ListView.
+     */
     public void setHistorialLV() {
         undoLV.getItems().clear();
         redoLV.getItems().clear();
@@ -509,7 +520,11 @@ public class ControllerInterfazSolitaire {
         }
         undoLV.getItems().add("Movimiento actual");
     }
-
+    /*
+    * Recibe un índice, y en base a este índice se determinan cuantos
+    * movimientos se harán redo o undo, según corresponda, hasta llegar al
+    * índice target u objetivo.
+     */
     private void ajustarHastaUndoSize(int target) {
         while (sizeActual > target) {
             if (!game.deshacer()) break;
@@ -520,6 +535,11 @@ public class ControllerInterfazSolitaire {
             sizeActual++;
         }
     }
+    /*
+    * Se ejecuta al clickear en un movimiento dentro del historial,
+    * llama la función que muestra el estado del tablero en determinado
+    * movimiento, y reinicia atributos
+     */
     private void previewHistorial(int idxSeleccion) {
         int undoSizeIdeal = idxSeleccion;
         if (undoSizeIdeal < 0) undoSizeIdeal = 0;
@@ -530,5 +550,4 @@ public class ControllerInterfazSolitaire {
         pistaReservaIdx = -1;
         dibujar();
     }
-
 }

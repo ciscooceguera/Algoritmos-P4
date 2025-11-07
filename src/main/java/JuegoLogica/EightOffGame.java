@@ -257,12 +257,12 @@ public class EightOffGame {
         alert.showAndWait();
     }
     /*
-    * Undo, recibe de la ListaSimple<RegistroMovimiento> undo el último
+    * Undo, recibe de la ListaDoble<RegistroMovimiento> undo el último
     * movimiento registrado, evalúa que no sea null, y hace un switch-case
     * para c/d caso en cada movimiento posible, y realiza la operación inversa
     * al movimiento que se haya realizado, el único case distinto
     * es que en el tableau->tableau se recibe una ListaSimple<Carta> por si
-    * se movieron varias cartas juntas
+    * se movieron varias cartas juntas. Finalmente inserta el movimiento en redo
      */
     public boolean deshacer(){
         RegistroMovimiento ultimoMov = undo.eliminarFin();
@@ -294,6 +294,14 @@ public class EightOffGame {
         redo.insertarFin(ultimoMov);
         return true;
     }
+    /*
+     * Undo, recibe de la ListaDoble<RegistroMovimiento> undo el último
+     * movimiento registrado, evalúa que no sea null, y hace un switch-case
+     * para c/d caso en cada movimiento posible, y realiza la operación inversa
+     * al movimiento que se haya realizado, el único case distinto
+     * es que en el tableau->tableau se recibe una ListaSimple<Carta> por si
+     * se movieron varias cartas juntas. Finalmente inserta el movimiento en undo
+     */
     public boolean rehacer() {
         RegistroMovimiento mov = redo.eliminarFin();
         if (mov == null) return false;
